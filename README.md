@@ -3,10 +3,10 @@
 WAMP, Composer must be installed 
 
 ## Create project directory in wap
-create project directory in this path  `C:\wamp64\www\project\`
+Create project directory in this path  `C:\wamp64\www\project\`
 
 ## Download Project
-Use git to clone the in the command prompt (or Terminal in Visual Code), type
+Use git to clone in the command prompt (or Terminal in Visual Code), type
 ```
 git clone https://github.com/pavanksd/employee_details.git
 ```
@@ -17,8 +17,8 @@ composer Install
 ```
 ## Generate Application Key
 ```
-  copy .env.example .env
-  php artisan key:generate
+copy .env.example .env
+php artisan key:generate
 ```
 ## Set up DB
 In .env file specify the DB details, example below
