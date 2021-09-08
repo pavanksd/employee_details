@@ -11,11 +11,10 @@ Use git to clone the in the command prompt (or Terminal in Visual Code), type
 git clone https://github.com/pavanksd/employee_details.git
 `
 ## Install Packages
-`
+```
 cd employee_details
-`
-`composer Install
-`
+composer Install
+```
 ## Generate Application Key
 ```
   copy .env.example .env
