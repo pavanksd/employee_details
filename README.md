@@ -3,13 +3,13 @@
 WAMP, Composer must be installed 
 
 ## Create project directory in wap
-create project directory in this path  `C:\wamp64\www\project\lavarel`
+create project directory in this path  `C:\wamp64\www\project\`
 
 ## Download Project
 Use git to clone the in the command prompt (or Terminal in Visual Code), type
-`
+```
 git clone https://github.com/pavanksd/employee_details.git
-`
+```
 ## Install Packages
 ```
 cd employee_details
@@ -31,9 +31,9 @@ DB_USERNAME=your_username
 DB_PASSWORD=your_passoword
 ```
 ## Run migration files
-`
+```
 php artisan migrate
-`
+```
 
 ## Running the application in browser
 In the browser, type the URL `http://localhost/project/employee_details/public/` to run the application
