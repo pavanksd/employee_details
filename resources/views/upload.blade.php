@@ -5,6 +5,16 @@
     <form action="{{route('employee.store')}}" method="post" enctype="multipart/form-data">
       <h3 class="text-center mb-5">Upload File</h3>
         @csrf
+      @if(Session::has('error_row'))
+        <div class="alert alert-danger">
+          {{ Session::get('error_row') }}
+        </div>
+      @endif
+      @if(Session::has('error_file'))
+      <div class="alert alert-danger">
+        {{ Session::get('error_file') }}
+      </div>
+    @endif
       @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>

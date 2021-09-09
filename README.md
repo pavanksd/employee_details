@@ -37,3 +37,5 @@ php artisan migrate
 
 ## Running the application in browser
 In the browser, type the URL `http://localhost/project/employee_details/public/` to run the application
+
+## To test this application added in expample csv file in ```sample csv``` folder

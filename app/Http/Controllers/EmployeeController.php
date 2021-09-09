@@ -20,7 +20,6 @@ class EmployeeController extends Controller
     
     public function employeeStore(Request $req){
         $validate_value = $req->validate([
-            'employee_csv'  => 'required|mimes:csv',
             'employee_code' => 'required|numeric|min:1|max:5',
             'employee_name' => 'required|numeric|min:1|max:5',
             'employee_dept' => 'required|numeric|min:1|max:5',
@@ -28,8 +27,20 @@ class EmployeeController extends Controller
             'employee_exp'  => 'required|numeric|min:1|max:5',
             ]);
 
+        $fileExtension = $req->file('employee_csv')->getClientOriginalExtension();   
+        
+        if($fileExtension != 'csv'){
+            $req->session()->flash('error_file', 'Upload a valid csv file');
+            return back()->withInput();
+            
+        }
         $filepath       = $req->file('employee_csv')->getPathName();
         $csv_arr_val    = $this->csvToArray($filepath);
+        if(count($csv_arr_val) > 20){
+            $req->session()->flash('error_row', 'Max 20 rows allowed in csv file');
+            return back()->withInput();
+
+        }
         $employee_code  =  $validate_value['employee_code'] - 1;
         $emplyoee_name  =  $validate_value['employee_name'] - 1;
         $employee_dept  =  $validate_value['employee_dept'] - 1;
@@ -55,8 +66,7 @@ class EmployeeController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         Employee::saveEmpDetails($emp_arr);
-        return redirect()->back()->withErrors($validator)->withInput();
-        // return redirect('/');
+        return redirect('/');
     }
 
     public function csvToArray($filepath){
