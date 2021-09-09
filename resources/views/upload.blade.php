@@ -4,6 +4,9 @@
 <div class="container mt-5 w-50">
     <form action="{{route('employee.store')}}" method="post" enctype="multipart/form-data">
       <h3 class="text-center mb-5">Upload File</h3>
+      <div>
+        <a href="{{route('homepage')}}" class="btn btn-success float-right mr-4 mb-3">Homepage</a>
+      </div>
         @csrf
       @if(Session::has('error_row'))
         <div class="alert alert-danger">
@@ -28,7 +31,7 @@
         <input type="file" name="employee_csv" accept=".csv" id="emp_file" onchange="enableinputfields()" >
         <div class="form-group mt-2">
             <p>Please Enter respective column number of Uploaded CSV file</p>
-            <label for="emp_code">Employee code</label>
+            <label for="emp_code">Employee code column</label>
             <input type="number" name="employee_code" id="emp_code" class="form-control" placeholder="Employee code column"  value="{{ old('employee_code') }}" disabled>
             <label for="emp_name">Name column</label>
             <input type="number"  name="employee_name" id="emp_name" class="form-control" placeholder="Name column" value="{{ old('employee_name') }}" disabled>

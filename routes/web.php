@@ -14,6 +14,6 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-Route::get('/', [EmployeeController::class,'index']);
+Route::get('/', [EmployeeController::class,'index'])->name('homepage');
 Route::get('/upload', [EmployeeController::class,'upload'])->name('upload');
 Route::post('/upload', [EmployeeController::class,'employeeStore'])->name('employee.store');

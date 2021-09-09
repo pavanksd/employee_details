@@ -3,7 +3,7 @@
 @section('content')
 <div>
     <h1 style="margin: 10px auto; text-align:center">Employee Details</h1>
-    <a href="{{'upload'}}" class="btn btn-primary float-right mr-4 mb-3">Upload Employee details</a>
+    <a href="{{route('upload')}}" class="btn btn-primary float-right mr-4 mb-3">Upload Employee details</a>
 </div>
 
 <div class="p-4">
